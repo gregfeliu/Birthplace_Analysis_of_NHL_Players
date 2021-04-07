@@ -1,6 +1,9 @@
 import requests
 import pandas as pd
 import pickle
+import geopandas as gpd
+from shapely.ops import nearest_points
+from shapely.geometry import LineString
 
 
 # IMPORTING DATA
@@ -85,3 +88,16 @@ def turn_coords_to_correct_format(data):
             new_str += item
     final_str = new_str[0:8] + '-' + new_str[8:]
     return final_str
+
+##### Calculating Nearest Neighbor #####
+# Note: most of these functions come from the following repo: 
+# https://github.com/shakasom/NearestNeighbour-Analysis/blob/master/NNA.ipynb
+def create_gdf(df, x="Lat", y="Lng"):
+    return gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df[x], df[y]), crs={"init":"epsg:4326"})
+
+def calculate_nearest(row, destination, val, col="geometry"):
+    dest_unary = destination["geometry"].unary_union
+    nearest_geom = nearest_points(row[col], dest_unary)
+    match_geom = destination.loc[destination.geometry == nearest_geom[1]]
+    match_value = match_geom[val].to_numpy()[0]
+    return match_value
