@@ -19,6 +19,8 @@ With this information available, I was able to plot the data using Folium, and a
 ## Findings 
 There were many surprising findings in this project. While it is well known that there are a lot of Canadian NHL players (8 of the top state/provinces nhl players per person were Canadian), certain provinces are much more likely to produce an NHL player than others. Quebec, once a province that had 2 NHL teams, is 4 times less likely to have an NHL player than Saskatchewan (a region with zero NHL teams). Similarly, one U.S. state stands out far above the rest: Minnesota. It has more NHL players per person than some Canadian provinces! 
 
+![Cartogram of States/Provinces and Players per Capita](./images/province_state_cartogram.png)
+
 If tomorrow the NHL forced all players to play for their "home" team, only 11 teams would still exist. Even accounting for the ~30% of non-North American players, this finding holds. Those teams can be found in the following screenshot: 
 
 ![Number of players born close to NHL team](./images/nearest_nhl_team_player_count.png)
