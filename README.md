@@ -17,7 +17,7 @@ From there, I used the geopy library to get the coordinates of each players' bir
 With this information available, I was able to plot the data using Folium, and add lines to the closest team for each player using Shapely. From there, I looked at the number of players who were born close to an NHL team and the number of players per province/state. 
 
 ## Findings 
-There were many surprising findings in this project. While it is well known that there are a lot of Canadian NHL players (8 of the top state/provinces nhl players per person were Canadian), certain provinces are much more likely to produce an NHL player than others. Quebec, once a province that had 2 NHL teams, is 4 times less likely to have an NHL player than Saskatchewan (a region with zero NHL teams). Similarly, one U.S. state stands out far above the rest: Minnesota. It has more NHL players per person than some Canadian provinces! 
+There were many surprising findings in this project. While it is well known that there are a lot of Canadian NHL players (8 of the top state/provinces nhl players per person were Canadian), certain provinces are much more likely to produce an NHL player than others. Quebec, once a province that had 2 NHL teams, is 4 times less likely to have an NHL player than Saskatchewan (a region with zero NHL teams). Similarly, one U.S. state stands out far above the rest: Minnesota. It has more NHL players per person than some Canadian provinces! In the image below, you can see the number of players per capita for each state/province in the U.S. and Canada.
 
 ![Cartogram of States/Provinces and Players per Capita](./images/province_state_cartogram.png)
 
