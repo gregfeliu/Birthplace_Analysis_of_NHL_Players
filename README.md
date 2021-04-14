@@ -1,7 +1,7 @@
 # NHL Player Birthplaces 
 
 ## Description
-Hockey is, and necessarily will be, a regional sport. This has less to do with cultural (like it is for the American/Canadian football divide) and more to do with the weather -- if it isn't cold where you live, how can you play a sport on ice? To take an extreme example, [Hawaii only has one ice rink in the entire state](https://www.icepalacehawaii.com/about) and, for obvious reasons, does not have any frozen lakes. So it makes sense why there has never been a [Hawaiian born and raised hockey player](https://www.hockey-reference.com/friv/birthplaces.cgi).
+Hockey is, and necessarily will be, a regional sport. This has less to do with culture (like it is for the American/Canadian football divide) and more to do with the weather -- if it isn't cold where you live, how can you play a sport on ice? To take an extreme example, [Hawaii only has one ice rink in the entire state](https://www.icepalacehawaii.com/about) and, for obvious reasons, does not have any frozen lakes. So it makes sense why there has never been a [Hawaiian born and raised hockey player](https://www.hockey-reference.com/friv/birthplaces.cgi).
 
 ![Map of all NHL players' birthplaces and closest NHL team](./images/folium_map.png)
 
