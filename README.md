@@ -31,7 +31,7 @@ If we limited the players to playing on a team that is within 60 miles of their 
 
 Most Canadian teams would still survive in this scenario: only Ottawa and Winnepeg would be excluded. 
 
-Moreover, it's no surprise that northern U.S. teams are more likely to have local NHL players. With a new Seattle team joining next season, this begs the question: how many local NHL players could the Seattle team have? The answer? Only 2. All other local players are much closer to Vancouver. It appears that even a northern team could have fewer local players than a southern team like the Tampa Bay Lightning or even Arizon Coyotes! 
+Moreover, it's no surprise that northern U.S. teams are more likely to have local NHL players. With a new Seattle team joining next season, this begs the question: how many local NHL players could the Seattle team have? The answer? Only 2. All other local players are much closer to Vancouver. It appears that even a northern team could have fewer local players than a southern team like the Tampa Bay Lightning or even Arizona Coyotes! 
 
 Taken together, we see the importance of geography in producing NHL talent. However, there is an important caveat in that many players did not spend most of their time playing where they were born: [the Mississippi born Mathieu Olivier grew up playing in Montreal, QC](https://en.wikipedia.org/wiki/Mathieu_Olivier) and the [only Dutch player to ever play in the NHL](https://en.wikipedia.org/wiki/Daniel_Sprong) moved to Quebec to play hockey at age 8. While someone's birthplace tells us a lot, it still leaves open the thorny question of where and *how* one became an NHL player. This question seems to be beyond the scope of this analysis, but I hope it helped to shed more light on the issue. 
 
