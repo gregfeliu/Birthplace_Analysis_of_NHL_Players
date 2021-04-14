@@ -12,7 +12,7 @@ This project will help the casual NHL fan understand more about the players who 
 ## Data
 I gathered data by using the NHL API to get the names of each of the current NHL players (2021 season) and the names of their birth city and state/province. In addition, I got the names of each of the teams and the location of their arenas.
 
-From there, I used the geopy library to get the coordinates of each players' birth city, as well as the coordinates of each arena. I then used the Shapely and GeoPandas libraries to calculate which team's arena was closest to each player and found the haversine distance (i.e.: the "as the crow flies") to that arena.  
+From there, I used the geopy library to get the coordinates of each players' birth city, as well as the coordinates of each arena. I then used the Shapely and GeoPandas libraries to calculate which team's arena was closest to each player and found the haversine distance (i.e.: the "as the crow flies" distance) to that arena.  
 
 With this information available, I was able to plot the data using Folium, and add lines to the closest team for each player using Shapely. From there, I looked at the number of players who were born close to an NHL team and the number of players per province/state. 
 
