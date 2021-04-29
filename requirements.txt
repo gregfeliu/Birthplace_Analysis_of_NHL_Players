@@ -1,0 +1,15 @@
+# due to an issue installing a geoplot dependency, geoplot needs to be installed manually
+mapclassify==2.4.2
+scipy==1.4.1
+matplotlib==3.1.3
+requests==2.22.0
+Shapely==1.7.1
+geopy==2.0.0
+folium==0.9.1
+wikipedia==1.4.0
+geovoronoi==0.2.0
+numpy==1.18.1
+pandas==1.0
+seaborn==0.9.0
+geopandas==0.6.3
+haversine==2.2.0
