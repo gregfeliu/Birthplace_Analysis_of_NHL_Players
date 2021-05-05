@@ -167,7 +167,7 @@ def evaluate_num_of_clusters(clustergram):
 
 ##### Plotting the clusters #####
 def plot_clusters(us_can_gdf, clustered_gdf, col_name_to_plot: str):
-    ax = us_can_gdf.plot(figsize = (12, 12), facecolor='white', edgecolor='grey')
-    # the mis-colored dots in the middle of the larger clusters are the centroids of those clusters
-    clustered_gdf.plot(column=col_name_to_plot, cmap='tab20b', ax=ax, figsize = (12, 12))
+    
+    
+    
     return ax
