@@ -5,6 +5,10 @@ import geopandas as gpd
 from shapely.ops import nearest_points
 from shapely.geometry import LineString
 import scipy.stats as st
+from clustergram import Clustergram
+import urbangrammar_graphics as ugg
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 
 # IMPORTING DATA
@@ -132,6 +136,34 @@ def get_best_distribution(data):
     print("Parameters for the best fit: "+ str(params[best_dist]))
 
     return best_dist, best_p, params[best_dist]
+
+##### Optimal number of cluster #####
+# both of these were made using help from the clustergram page https://clustergram.readthedocs.io/en/latest/
+def fit_plot_clustergram(scaled_data):
+    cgram = Clustergram(range(1, 10), n_init=1000, verbose=False)
+    cgram.fit(scaled_data)
+    ax = cgram.plot(
+    figsize=(10, 8),
+    line_style=dict(color=ugg.COLORS[1]),
+    cluster_style={"color": ugg.COLORS[2]}
+    )
+    ax.yaxis.grid(False)
+    sns.despine(offset=10)
+    return cgram
+
+def evaluate_num_of_clusters(clustergram):  
+    fig, axs = plt.subplots(2, figsize=(10, 10), sharex=True)
+    # score of 1 is best with the silhouette score
+    clustergram.silhouette_score().plot(
+        color=ugg.COLORS[1],
+        ax=axs[0],
+    )
+    # the higher the value, the better
+    clustergram.calinski_harabasz_score().plot(
+        color=ugg.COLORS[1],
+        ax=axs[1]
+    )
+    sns.despine(offset=10)
 
 ##### Plotting the clusters #####
 def plot_clusters(us_can_gdf, clustered_gdf, col_name_to_plot: str):
