@@ -33,6 +33,10 @@ Most Canadian teams would still survive in this scenario: only Ottawa and Winnep
 
 Moreover, it's no surprise that northern U.S. teams are more likely to have local NHL players. With a new Seattle team joining next season, this begs the question: how many local NHL players could the Seattle team have? The answer? Only 2. All other local players are much closer to Vancouver. It appears that even a northern team could have fewer local players than a southern team like the Tampa Bay Lightning or even Arizona Coyotes! 
 
+A final task for this project was finding the optimal number of clusters for players' birthplaces. In other words, what's the most geographically salient way of describing where a player was born? If we only had X categories for describing where a player was born, what birthplaces make up that category? I found using the [Cartogram library](https://clustergram.readthedocs.io/en/latest/) and statistical tests (silhouette_score and calinski_harabasz_score) that 3 is the optimal number of clusters for players' birthplaces. I then applied Kmeans clustering to this data and clustered the birthplaces into 3 based on their coordinates. I found that "vertical" splits make the most sense: vertical lines east of chicago and through central Manitoba are the lines that divide players' birthplaces in 3. Of these, the eastern portion has nearly twice as many players as the other two portions. What this means is that the optimal way of dividing players based on the geography of where they were born is whether they were born in western, central, or eastern North America. 
+
+![Image of the 3 clusters of players' birthplaces](./images/player_gdf_w_centroids.png)
+
 Taken together, we see the importance of geography in producing NHL talent. However, there is an important caveat in that many players did not spend most of their time playing where they were born: [the Mississippi born Mathieu Olivier grew up playing in Montreal, QC](https://en.wikipedia.org/wiki/Mathieu_Olivier) and the [only Dutch player to ever play in the NHL](https://en.wikipedia.org/wiki/Daniel_Sprong) moved to Quebec to play hockey at age 8. While someone's birthplace tells us a lot, it still leaves open the thorny question of where and *how* one became an NHL player. This question seems to be beyond the scope of this analysis, but I hope it helped to shed more light on the issue. 
 
 ## Technologies
@@ -45,5 +49,7 @@ Taken together, we see the importance of geography in producing NHL talent. Howe
     - Seaborn
     - GeoPy
     - Requests
+    - scikit-learn
+    - Cartogram
 - Jupyter Notebook
 
