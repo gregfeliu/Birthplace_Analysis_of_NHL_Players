@@ -4,6 +4,7 @@ import pickle
 import geopandas as gpd
 from shapely.ops import nearest_points
 from shapely.geometry import LineString
+import scipy.stats as st
 
 
 # IMPORTING DATA
@@ -101,3 +102,40 @@ def calculate_nearest(row, destination, val, col="geometry"):
     match_geom = destination.loc[destination.geometry == nearest_geom[1]]
     match_value = match_geom[val].to_numpy()[0]
     return match_value
+
+##### Running Stats on Players per capita distributions #####
+#taken from https://stackoverflow.com/questions/37487830/how-to-find-probability-distribution-and-parameters-for-real-data-python-3
+def get_best_distribution(data):
+#     dist_names = ["norm", "exponweib", "weibull_max", "weibull_min", "pareto", "genextreme"]
+    # this is from https://towardsdatascience.com/identify-your-datas-distribution-d76062fc0802
+    dist_names = ['weibull_min','norm','weibull_max','beta',
+              'invgauss','uniform','gamma','expon',   
+              'lognorm','pearson3', 'triang']
+    dist_results = []
+    params = {}
+    for dist_name in dist_names:
+        dist = getattr(st, dist_name)
+        param = dist.fit(data)
+
+        params[dist_name] = param
+        # Applying the Kolmogorov-Smirnov test
+        D, p = st.kstest(data, dist_name, args=param)
+        print("p value for "+dist_name+" = "+str(p))
+        dist_results.append((dist_name, p))
+
+    # select the best fitted distribution
+    best_dist, best_p = (max(dist_results, key=lambda item: item[1]))
+    # store the name of the best fit and its p value
+
+    print("Best fitting distribution: "+str(best_dist))
+    print("Best p value: "+ str(best_p))
+    print("Parameters for the best fit: "+ str(params[best_dist]))
+
+    return best_dist, best_p, params[best_dist]
+
+##### Plotting the clusters #####
+def plot_clusters(us_can_gdf, clustered_gdf, col_name_to_plot: str):
+    ax = us_can_gdf.plot(figsize = (12, 12), facecolor='white', edgecolor='grey')
+    # the mis-colored dots in the middle of the larger clusters are the centroids of those clusters
+    clustered_gdf.plot(column=col_name_to_plot, cmap='tab20b', ax=ax, figsize = (12, 12))
+    return ax
