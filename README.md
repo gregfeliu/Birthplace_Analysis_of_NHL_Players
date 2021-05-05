@@ -37,6 +37,8 @@ A final task for this project was finding the optimal number of clusters for pla
 
 ![Image of the 3 clusters of players' birthplaces](./images/player_gdf_w_centroids.png)
 
+## Conclusion
+
 Taken together, we see the importance of geography in producing NHL talent. However, there is an important caveat in that many players did not spend most of their time playing where they were born: [the Mississippi born Mathieu Olivier grew up playing in Montreal, QC](https://en.wikipedia.org/wiki/Mathieu_Olivier) and the [only Dutch player to ever play in the NHL](https://en.wikipedia.org/wiki/Daniel_Sprong) moved to Quebec to play hockey at age 8. While someone's birthplace tells us a lot, it still leaves open the thorny question of where and *how* one became an NHL player. This question seems to be beyond the scope of this analysis, but I hope it helped to shed more light on the issue. 
 
 ## Technologies
