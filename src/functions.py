@@ -239,3 +239,21 @@ def assign_clusters_names(dataframe, city_name_list: list):
                 counter +=1 
     dataframe['Cluster_name'] = dataframe['player_cluster_dbscan'].astype('str').replace(cluster_to_name_dict)
     return dataframe
+
+def make_points_to_shape(gdf):
+    cluster_nums = sorted(gdf['player_cluster_dbscan'].unique())
+    cluster_name = []
+    convex_hulls = []
+    area = []
+    for cluster in cluster_nums:
+        mini_gdf = gdf[gdf['player_cluster_dbscan']==cluster]
+        multipoint = MultiPoint([x for x in mini_gdf['geometry']])
+        convex_hull = multipoint.convex_hull
+        cluster_name.append(mini_gdf['Cluster_name'].iloc[0])
+        convex_hulls.append(convex_hull)
+        area.append(convex_hull.area)
+    cluster_dict = {'Cluster_num':cluster_nums, 'Cluster_name':cluster_name, 
+                    'geometry':convex_hulls, 'Area':area}
+    cluster_shape_gdf = gpd.GeoDataFrame(cluster_dict, crs=4326) # this projection uses meters i think
+    cluster_shape_gdf_no_lines = cluster_shape_gdf[cluster_shape_gdf['Area']>0]
+    return cluster_shape_gdf_no_lines
